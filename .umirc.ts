@@ -10,7 +10,7 @@ export default defineConfig({
   },
   devtool: 'source-map',
   antd: {},
-  title: '趣谈前端-h5-dooring',
+  title: 'CPChain Operating',
   // exportStatic: {},
   base: '/',
   publicPath: '/',

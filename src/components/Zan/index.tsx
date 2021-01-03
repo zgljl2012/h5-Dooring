@@ -12,11 +12,11 @@ const content = (
 export default memo(function ZanPao() {
   return (
     <div className={styles.takeCat} style={{ display: 'inline-block' }}>
-      <Popover placement="top" title={null} content={content} trigger="hover">
+      {/* <Popover placement="top" title={null} content={content} trigger="hover">
         <Button type="primary" size="large">
           支持开源, 请作者喝奶茶~
         </Button>
-      </Popover>
+      </Popover> */}
     </div>
   );
 });

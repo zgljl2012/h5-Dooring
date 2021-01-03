@@ -24,7 +24,7 @@ const Home = () => {
   };
   return (
     <div className={styles.homeWrap}>
-      <div className={styles.leftArea}>
+      {/* <div className={styles.leftArea}>
         <Tabs defaultActiveKey="1">
           <TabPane
             tab={
@@ -60,34 +60,37 @@ const Home = () => {
             正在开发...
           </TabPane>
         </Tabs>
-      </div>
+      </div> */}
       <div className={styles.contentArea}>
         <div className={styles.logoTip}>
           <div className={styles.logo}>
-            <span className={styles.logoText} title="H5-Dooring可视化编辑器">
-              H5-Dooring
+            <span className={styles.logoText} title="CPChain 运营页面可视化编辑器">
+              CPChain Operating
             </span>
             可视化编辑器
           </div>
           <p style={{ display: 'inline-block', width: '520px', fontSize: '16px', lineHeight: '2' }}>
-            H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决方案，
-            致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。 技术栈以react为主，
-            后台采用nodejs开发。
+            H5页面可视化页面配置解决方案，适用于 PC
+            端和移动端，致力于为运营团队提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。
           </p>
         </div>
         <div className={styles.operation}>
           <div className={styles.card} onClick={() => handleGo('H5')}>
             <MobileOutlined />
-            <div>制作H5页面</div>
+            <div>制作 H5 页面</div>
           </div>
-          <div className={styles.card} onClick={() => handleGo('online')}>
+          <div className={styles.card} onClick={() => handleGo('PC')}>
+            <ConsoleSqlOutlined />
+            <div>制作 PC 页面</div>
+          </div>
+          {/* <div className={styles.card} onClick={() => handleGo('online')}>
             <CodeOutlined />
             <div>在线编程</div>
           </div>
           <div className={styles.card} onClick={() => handleGo('PC')}>
             <ConsoleSqlOutlined />
             <div>制作可视化大屏</div>
-          </div>
+          </div> */}
         </div>
         <footer className={styles.footer}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -97,7 +100,7 @@ const Home = () => {
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div style={{ width: '500px', marginLeft: '40px', marginTop: '32px' }}>
-              <span style={{ marginRight: '24px' }}>更多产品: </span>
+              {/* <span style={{ marginRight: '24px' }}>更多产品: </span>
               <a href="http://49.234.61.19/qt" style={{ marginRight: '24px' }} target="_blank">
                 趣图-在线gif动图制作平台
               </a>
@@ -107,7 +110,7 @@ const Home = () => {
                 target="_blank"
               >
                 在线css三角形生成器
-              </a>
+              </a> */}
             </div>
           </div>
         </footer>

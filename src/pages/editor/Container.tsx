@@ -21,6 +21,7 @@ import mediaTpl from 'components/BasicShop/MediaComponents/template';
 import graphTpl from 'components/BasicShop/VisualComponents/template';
 
 import schemaH5 from 'components/BasicShop/schema';
+import schemaPc from 'components/BasicPcShop/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
 import { throttle, detectMobileBrowser, getBrowserNavigatorMetaInfo } from '@/utils/tool';
 

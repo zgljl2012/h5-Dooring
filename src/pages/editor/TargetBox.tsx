@@ -13,6 +13,7 @@ interface TargetBoxProps {
 
 const TargetBox = memo((props: TargetBoxProps) => {
   const { item } = props;
+  console.log(item);
   const context = useContext(dooringContext);
   const schema = useMemo(() => {
     if (context.theme === 'h5') {
