@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef, useContext } from 'react';
 import { Result, Tabs } from 'antd';
 import {
   PieChartOutlined,
@@ -20,12 +20,17 @@ import template from 'components/BasicShop/BasicComponents/template';
 import mediaTpl from 'components/BasicShop/MediaComponents/template';
 import graphTpl from 'components/BasicShop/VisualComponents/template';
 
+import templatePc from 'components/BasicPcShop/BasicComponents/template';
+import mediaTplPc from 'components/BasicPcShop/MediaComponents/template';
+import graphTplPc from 'components/BasicPcShop/VisualComponents/template';
+
 import schemaH5 from 'components/BasicShop/schema';
 import schemaPc from 'components/BasicPcShop/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
 import { throttle, detectMobileBrowser, getBrowserNavigatorMetaInfo } from '@/utils/tool';
 
 import styles from './index.less';
+import { dooringContext } from '@/layouts';
 
 const { TabPane } = Tabs;
 
@@ -193,6 +198,7 @@ const Container = (props: {
   }, [cpointData.length, curPoint, handleDel, handleFormSave, pointData.length, rightColla]);
 
   const tabRender = useMemo(() => {
+    const context = useContext(dooringContext);
     if (collapsed) {
       return (
         <>
@@ -201,7 +207,7 @@ const Container = (props: {
           <TabPane tab={generateHeader('visible', '')} key="3"></TabPane>
         </>
       );
-    } else {
+    } else if (context.theme === 'h5') {
       return (
         <>
           <TabPane tab={generateHeader('base', '')} key="1">
@@ -247,8 +253,64 @@ const Container = (props: {
           </TabPane>
         </>
       );
+    } else if (context.theme === 'pc') {
+      return (
+        <>
+          <TabPane tab={generateHeader('base', '')} key="1">
+            <div className={styles.ctitle}>基础组件</div>
+            {templatePc.map((value, i) => {
+              return (
+                <TargetBox item={value} key={i} canvasId={canvasId}>
+                  <DynamicEngine
+                    {...value}
+                    config={schemaPc[value.type as keyof typeof schemaPc].config}
+                    componentsType="base"
+                    isTpl={true}
+                  />
+                </TargetBox>
+              );
+            })}
+          </TabPane>
+          <TabPane tab={generateHeader('media', '')} key="2">
+            <div className={styles.ctitle}>媒体组件</div>
+            {mediaTplPc.map((value, i) => (
+              <TargetBox item={value} key={i} canvasId={canvasId}>
+                <DynamicEngine
+                  {...value}
+                  config={schemaPc[value.type as keyof typeof schemaPc].config}
+                  componentsType="media"
+                  isTpl={true}
+                />
+              </TargetBox>
+            ))}
+          </TabPane>
+          <TabPane tab={generateHeader('visible', '')} key="3">
+            <div className={styles.ctitle}>可视化组件</div>
+            {graphTplPc.map((value, i) => (
+              <TargetBox item={value} key={i} canvasId={canvasId}>
+                <DynamicEngine
+                  {...value}
+                  config={schemaPc[value.type as keyof typeof schemaPc].config}
+                  componentsType={'visible' as componentsType}
+                  isTpl={true}
+                />
+              </TargetBox>
+            ))}
+          </TabPane>
+        </>
+      );
     }
-  }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schemaH5, template]);
+  }, [
+    canvasId,
+    collapsed,
+    generateHeader,
+    graphTpl,
+    mediaTpl,
+    schemaH5,
+    template,
+    schemaPc,
+    templatePc,
+  ]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [diffmove, setDiffMove] = useState({

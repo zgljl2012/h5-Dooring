@@ -1,26 +1,42 @@
 import React, { memo } from 'react';
 import * as Icon from '@ant-design/icons';
-import IconImg from 'assets/icon.png';
 import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 import { AntdIconType } from './icon';
 import { IIconConfig } from './schema';
+import logo from '@/assets/05-图标.png';
 
 interface IconType extends IIconConfig {
   isTpl?: boolean;
 }
 const XIcon = memo((props: IconType) => {
-  const { color, size, type, spin, isTpl } = props;
+  const { color, size, link, text, fontSize, fontColor, type, spin, isTpl } = props;
 
   const MyIcon: React.ForwardRefExoticComponent<Pick<AntdIconProps, AntdIconType> &
     React.RefAttributes<HTMLSpanElement>> = Icon[type];
 
+  const handleClick = () => {
+    if (!link || window.location.href.indexOf('/editor') > -1) return;
+    window.location.href = link;
+  };
+
   return isTpl ? (
-    <div style={{ textAlign: 'center' }}>
-      <img style={{ verticalAlign: '-20px', width: '82px' }} src={IconImg} alt={type} />
-      图标
+    <div>
+      <img style={{ width: '100%' }} src={logo} alt="" />
     </div>
   ) : (
-    <MyIcon twoToneColor={color} style={{ fontSize: size }} spin={spin} />
+    <div
+      style={{
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      <MyIcon twoToneColor={color} style={{ fontSize: size }} spin={spin} onClick={handleClick} />
+      <div style={{ fontSize, color: fontColor, paddingTop: '6px' }}> {text} </div>
+    </div>
   );
 });
 

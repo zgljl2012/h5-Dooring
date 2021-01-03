@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, memo, ReactNode, useContext, CSSProperties } from 'react';
 import { Tabs, message } from 'antd';
 import { history } from 'umi';
 import {
@@ -9,15 +9,20 @@ import {
 } from '@ant-design/icons';
 import Zan from '@/components/Zan';
 import styles from './index.less';
+import { dooringContext } from '@/layouts';
 
 const { TabPane } = Tabs;
 
 const Home = () => {
+  const context = useContext(dooringContext);
   const handleGo = (type: string) => {
     if (type === 'H5') {
       history.push('/editor?tid=123456');
+      context.setTheme('h5');
     } else if (type === 'PC') {
-      message.error('该功能暂未开放, 敬请关注...');
+      history.push('/editor?tid=123457');
+      context.setTheme('pc');
+      // message.error('该功能暂未开放, 敬请关注...');
     } else {
       history.push('/ide');
     }
@@ -65,9 +70,8 @@ const Home = () => {
         <div className={styles.logoTip}>
           <div className={styles.logo}>
             <span className={styles.logoText} title="CPChain 运营页面可视化编辑器">
-              CPChain Operating
+              CPChain Operating Editor
             </span>
-            可视化编辑器
           </div>
           <p style={{ display: 'inline-block', width: '520px', fontSize: '16px', lineHeight: '2' }}>
             H5页面可视化页面配置解决方案，适用于 PC

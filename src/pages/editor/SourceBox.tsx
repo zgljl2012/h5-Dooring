@@ -10,6 +10,7 @@ import { Dispatch } from 'umi';
 import { StateWithHistory } from 'redux-undo';
 import { Menu, Item, MenuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css';
+import { dooringContext } from '@/layouts';
 interface SourceBoxProps {
   pstate: { pointData: { id: string; item: any; point: any; isMenu?: any }[]; curPoint: any };
   cstate: { pointData: { id: string; item: any; point: any }[]; curPoint: any };
@@ -146,6 +147,50 @@ const SourceBox = memo((props: SourceBoxProps) => {
   const opacity = isOver ? 0.7 : 1;
 
   const render = useMemo(() => {
+    const context = useContext(dooringContext);
+    if (context.theme === 'pc') {
+      return (
+        <Draggable
+          position={dragState}
+          handle=".js_box"
+          onStop={(e: DraggableEvent, data: DraggableData) => {
+            setDragState({ x: data.x, y: data.y });
+          }}
+        >
+          <div className={styles.canvasBox2}>
+            <MenuProvider id="menu_id">
+              <div
+                style={{
+                  transform: `scale(${scaleNum})`,
+                  position: 'relative',
+                  width: '100%',
+                  height: '100%',
+                }}
+              >
+                <div
+                  id={canvasId}
+                  className={styles.canvas}
+                  style={{
+                    opacity,
+                  }}
+                  ref={drop}
+                >
+                  {pointData.length > 0 ? (
+                    <ViewRender
+                      pointData={pointData}
+                      width={canvasRect[0] || 0}
+                      dragStop={dragStop}
+                      onDragStart={onDragStart}
+                      onResizeStop={onResizeStop}
+                    />
+                  ) : null}
+                </div>
+              </div>
+            </MenuProvider>
+          </div>
+        </Draggable>
+      );
+    }
     return (
       <Draggable
         position={dragState}
