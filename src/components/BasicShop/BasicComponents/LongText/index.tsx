@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import styles from './index.less';
 import { ILongTextConfig } from './schema';
 import logo from '@/assets/08-长文本.png';
 const LongText = memo((props: ILongTextConfig & { isTpl: boolean }) => {
