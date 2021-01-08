@@ -36,7 +36,7 @@ const Image: IImageSchema = {
         uid: '001',
         name: 'image.png',
         status: 'done',
-        url: 'http://io.nainor.com/uploads/4_1740bf4535c.png',
+        url: 'http://49.234.61.19/uploads/4_1740bf4535c.png',
       },
     ],
     round: 0,

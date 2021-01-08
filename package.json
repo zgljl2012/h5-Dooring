@@ -6,7 +6,7 @@
   "author": {
     "name": "徐小夕",
     "email": "xujiang156@qq.com",
-    "url": "http://io.nainor.com/h5_visible"
+    "url": "http://49.234.61.19/h5_visible"
   },
   "keywords": [
     "h5 editor",
@@ -44,7 +44,7 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "homepage": "http://io.nainor.com/h5_visible",
+  "homepage": "http://49.234.61.19/h5_visible",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MrXujiang/h5-Dooring.git"

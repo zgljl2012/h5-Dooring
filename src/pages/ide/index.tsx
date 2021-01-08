@@ -38,7 +38,7 @@ let html = `<!DOCTYPE html>
   </head>
   <body>
     <div id="root">
-      <img src="http://io.nainor.com/uploads/logo_1747374040f.png" />
+      <img src="http://49.234.61.19/uploads/logo_1747374040f.png" />
       <p>
         (H5编辑器)H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决方案，
         致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。
@@ -135,7 +135,7 @@ export default function() {
       <div className={styles.header}>
         <div className={styles.logoArea}>
           <div className={styles.logo} title="Dooring">
-            <a href="http://io.nainor.com/h5_visible">
+            <a href="http://49.234.61.19/h5_visible">
               <img src={Logo} alt="Dooring-强大的h5编辑器" />
             </a>
           </div>

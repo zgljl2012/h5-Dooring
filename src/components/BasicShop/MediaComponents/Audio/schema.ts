@@ -31,7 +31,7 @@ const Audio: IAudioSchema = {
   ],
   config: {
     height: 32,
-    url: 'http://io.nainor.com/audio.mp3',
+    url: 'http://49.234.61.19/audio.mp3',
   },
 };
 

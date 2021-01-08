@@ -147,4 +147,4 @@ export function getBrowserNavigatorMetaInfo(): string {
   return window.navigator.userAgent || window.navigator.vendor || window.opera;
 }
 
-export const serverUrl = isDev ? 'http://192.16x.x.x:3000' : '你的服务器地址';
+export const serverUrl = isDev ? 'http://127.0.0.1:8080' : '你的服务器地址';

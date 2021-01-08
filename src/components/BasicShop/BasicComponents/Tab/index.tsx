@@ -42,7 +42,7 @@ const XTab = (props: ITabConfig & { isTpl: boolean }) => {
                                 src={
                                   item.imgUrl[0]
                                     ? item.imgUrl[0].url
-                                    : 'http://io.nainor.com/uploads/01_173e15d3493.png'
+                                    : 'http://49.234.61.19/uploads/01_173e15d3493.png'
                                 }
                                 alt={item.title}
                               />
