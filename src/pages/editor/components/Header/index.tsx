@@ -344,10 +344,10 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           <CodeOutlined />
           在线编程
         </Button>
-        <Button type="primary" ghost onClick={toVipLogin} style={{ marginRight: '12px' }}>
+        {/*<Button type="primary" ghost onClick={toVipLogin} style={{ marginRight: '12px' }}>
           <SketchOutlined />
           会员登录
-        </Button>
+        </Button>*/}
       </div>
       <Modal
         title="生成封面中...(长时间未反应请点右侧按钮重试)"

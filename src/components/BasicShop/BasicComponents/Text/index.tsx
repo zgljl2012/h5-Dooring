@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import styles from './index.less';
 import { ITextConfig } from './schema';
 import logo from '@/assets/12-文本.png';
 const Text = memo((props: ITextConfig & { isTpl: boolean }) => {

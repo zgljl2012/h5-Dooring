@@ -7,7 +7,7 @@ import {
   TNumberDefaultType,
   TSelectDefaultType,
   TTextDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 
 export type TButtonSelectKeyType = 'left' | 'center' | 'right';
 
@@ -78,7 +78,7 @@ const Button: IButtonSchema = {
   ],
   config: {
     bgColor: 'rgba(0,0,0,1)',
-    text: '按钮 button 按钮 button 按钮 button',
+    text: '按钮 button',
     color: 'rgba(255,255,255,1)',
     align: 'center',
     fontSize: 16,

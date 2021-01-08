@@ -310,6 +310,8 @@ const Container = (props: {
     template,
     schemaPc,
     templatePc,
+    graphTplPc,
+    mediaTplPc,
   ]);
 
   const containerRef = useRef<HTMLDivElement>(null);
